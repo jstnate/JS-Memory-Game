@@ -1,0 +1,68 @@
+#gameBoard {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1150px; /* Ajustez selon vos besoins */
+  margin: auto;
+}
+
+.card {
+  width: 150px; /* Taille des cartes */
+  height: 150px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em; /* Taille du texte */
+  cursor: pointer; /* Change le curseur */
+  perspective: 1000px; /* Nécessaire pour l'effet 3D */
+}
+
+/* Le flip se produit sur cet élément */
+.card-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px; /* Bords arrondis */
+  background-color: #f0f0f0; /* Couleur de fond des cartes */
+  transition: transform 0.6s; /* Durée de l'animation */
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+/* Face avant et arrière de la carte */
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  backface-visibility: hidden; /* Cache l'arrière de la carte lorsqu'elle n'est pas tournée */
+  border-radius: 10px;
+}
+
+/* Stylisation spécifique pour chaque face */
+.front-face {
+  /* Styles pour la face avant */
+}
+
+.back-face {
+  /* Styles pour la face arrière */
+  transform: rotateY(
+    180deg
+  ); /* Tourne la face arrière pour qu'elle soit cachée au début */
+}
+
+/* Quand la carte est retournée */
+.card.flipped .card-inner {
+  transform: rotateY(180deg); /* Tourne la carte de 180 degrés */
+}
+
+.card.flipped {
+  background-color: #fff; /* Couleur quand la carte est retournée */
+}
+
+.card.matched .card-inner {
+  background-color: #9f9; /* Couleur pour les paires trouvées */
+  cursor: default;
+}
