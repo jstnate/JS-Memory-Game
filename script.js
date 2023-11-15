@@ -4,14 +4,14 @@ function shuffleArray(inputArray) {
 }
 
 const cardData = [
-    { id: 1, content: "Good Bye", imageUrl: "<img src='assets/bye.svg'>" },
-    { id: 2, content: "Hello", imageUrl: "<img src='assets/hello.svg'>" },
-    { id: 3, content: "I Love You", imageUrl: "<img src='assets/loveYou.svg'>" },
-    { id: 4, content: "No", imageUrl: "<img src='assets/no.svg'>" },
-    { id: 5, content: "Please", imageUrl: "<img src='assets/please.svg'>" },
-    { id: 6, content: "Sorry", imageUrl: "<img src='assets/sorry.svg'>" },
-    { id: 7, content: "Thank you", imageUrl: "<img src='assets/thankYou.svg'>" },
-    { id: 8, content: "Yes", imageUrl: "<img src='assets/yes.svg'>" },
+    { id: 1, content: "Good Bye", imageUrl: "<img src='assets/bye.svg'>", url: 'assets/bye.svg' },
+    { id: 2, content: "Hello", imageUrl: "<img src='assets/hello.svg'>", url: 'assets/hello.svg' },
+    { id: 3, content: "I Love You", imageUrl: "<img src='assets/loveYou.svg'>", url: 'assets/loveYou.svg' },
+    { id: 4, content: "No", imageUrl: "<img src='assets/no.svg'>", url: 'assets/no.svg' },
+    { id: 5, content: "Please", imageUrl: "<img src='assets/please.svg'>", url: 'assets/please.svg' },
+    { id: 6, content: "Sorry", imageUrl: "<img src='assets/sorry.svg'>", url: 'assets/sorry.svg' },
+    { id: 7, content: "Thank you", imageUrl: "<img src='assets/thankYou.svg'>", url: 'assets/thankYou.svg' },
+    { id: 8, content: "Yes", imageUrl: "<img src='assets/yes.svg'>", url: 'assets/yes.svg' },
 ];
 
 
@@ -37,7 +37,7 @@ let hasFlippedCard = false;
 let firstCard, secondCard;
 let lockBoard = false;
 
-function flipCard() {
+function flipCard(e) {
     if (lockBoard) return;
     if (this === firstCard) return;
 
@@ -52,13 +52,27 @@ function flipCard() {
 
     // Deuxième clic
     secondCard = this;
-    checkForMatch();
+    const isMatch = checkForMatch();
+    if(isMatch) {
+        const cardEl = e.target.closest('.card')
+        console.log(cardEl.querySelector('img'))
+        const img = document.createElement('img')
+        img.src = cardData.find(card => card.id === +cardEl.dataset.cardId).url
+        const txt = document.createElement('span')
+        txt.textContent = cardData.find(card => card.id === +cardEl.dataset.cardId).content
+        const card = document.createElement('div')
+        card.appendChild(img)
+        card.appendChild(txt)
+        card.classList.add('carde')
+        inner.appendChild(card)
+    }
 }
 
 function checkForMatch() {
     let isMatch = firstCard.dataset.cardId === secondCard.dataset.cardId;
 
     isMatch ? disableCards() : unflipCards();
+    return isMatch
 }
 
 function disableCards() {
@@ -86,15 +100,16 @@ function resetBoard() {
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 
-// const drawer = document.querySelector('main .drawer')
-// let isOpen = false
-// document.querySelector('main .drawer .truc').addEventListener('click', (e) => {
-//     if(drawer.classList.contains('paused')) drawer.classList.remove('paused')
-//     isOpen = !isOpen
-//     // isOpen ? 
+const drawer = document.querySelector('main .drawer')
+const inner = document.querySelector('main .drawer .inner')
+let isOpen = false
+document.querySelector('main .drawer .truc').addEventListener('click', (e) => {
+    if(drawer.classList.contains('paused')) drawer.classList.remove('paused')
+    isOpen = !isOpen
+    isOpen ? drawer.classList.remove('reverse') : drawer.classList.add('reverse')
 
-//     const el = drawer
-//     el.style.animation = 'none';
-//     el.offsetHeight; /* trigger reflow */
-//     el.style.animation = null; 
-// })
+    const el = drawer
+    el.style.animation = 'none';
+    el.offsetHeight; /* trigger reflow */
+    el.style.animation = null; 
+})
