@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 13, content: "TREIZE", number: 13 },
         { id: 14, content: "QUATORZE", number: 14 },
         { id: 15, content: "QUINZE", number: 15 },
+        { id: 16, content: "SEIZE", number: 16 },
 
     ];
 
