@@ -5,14 +5,14 @@ function shuffleArray(inputArray) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const cardData = [
-        { id: 1, content: "Au revoir", imageUrl: "<img src='assets/bye.svg'>" },
-        { id: 2, content: "Bonjour", imageUrl: "<img src='assets/hello.svg'>" },
-        { id: 3, content: "Je t'aime", imageUrl: "<img src='assets/loveYou.svg'>" },
-        { id: 4, content: "Non", imageUrl: "<img src='assets/no.svg'>" },
-        { id: 5, content: "S'il te plaît", imageUrl: "<img src='assets/please.svg'>" },
-        { id: 6, content: "Désolé", imageUrl: "<img src='assets/sorry.svg'>" },
-        { id: 7, content: "Merci", imageUrl: "<img src='assets/thankYou.svg'>" },
-        { id: 8, content: "Oui", imageUrl: "<img src='assets/yes.svg'>" },
+        { id: 1, content: "Good Bye", imageUrl: "<img src='assets/bye.svg'>" },
+        { id: 2, content: "Hello", imageUrl: "<img src='assets/hello.svg'>" },
+        { id: 3, content: "I Love You", imageUrl: "<img src='assets/loveYou.svg'>" },
+        { id: 4, content: "No", imageUrl: "<img src='assets/no.svg'>" },
+        { id: 5, content: "Please", imageUrl: "<img src='assets/please.svg'>" },
+        { id: 6, content: "Sorry", imageUrl: "<img src='assets/sorry.svg'>" },
+        { id: 7, content: "Thank you", imageUrl: "<img src='assets/thankYou.svg'>" },
+        { id: 8, content: "Yes", imageUrl: "<img src='assets/yes.svg'>" },
     ];
 
 
