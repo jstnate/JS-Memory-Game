@@ -5,16 +5,16 @@ function shuffleArray(inputArray) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const cardData = [
-        { id: 1, content: "Good bye", imageUrl: "<img src='assets/bye.svg'>" },
-        { id: 2, content: "Hello", imageUrl: "<img src='assets/hello.svg'>" },
-        { id: 3, content: "I love you", imageUrl: "<img src='assets/loveYou.svg'>" },
-        { id: 4, content: "No", imageUrl: "<img src='assets/no.svg'>" },
-        { id: 5, content: "Please", imageUrl: "<img src='assets/please.svg'>" },
-        { id: 6, content: "Sorry", imageUrl: "<img src='assets/sorry.svg'>" },
-        { id: 7, content: "Thank you", imageUrl: "<img src='assets/thankYou.svg'>" },
-        { id: 8, content: "Yes", imageUrl: "<img src='assets/yes.svg'>" },
+        { id: 1, content: "Au revoir", imageUrl: "<img src='assets/bye.svg'>" },
+        { id: 2, content: "Bonjour", imageUrl: "<img src='assets/hello.svg'>" },
+        { id: 3, content: "Je t'aime", imageUrl: "<img src='assets/loveYou.svg'>" },
+        { id: 4, content: "Non", imageUrl: "<img src='assets/no.svg'>" },
+        { id: 5, content: "S'il te plaît", imageUrl: "<img src='assets/please.svg'>" },
+        { id: 6, content: "Désolé", imageUrl: "<img src='assets/sorry.svg'>" },
+        { id: 7, content: "Merci", imageUrl: "<img src='assets/thankYou.svg'>" },
+        { id: 8, content: "Oui", imageUrl: "<img src='assets/yes.svg'>" },
     ];
-    
+
 
     const gameBoard = document.getElementById('gameBoard');
     shuffleArray(cardData.map((e, i) => {
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.innerHTML = `
             <div class="card-inner">
                 <div class="front-face">${e.content}</div>
-                <div class="back-face"><img src="3026570.svg" style="width: 80%; height: 80%; object-fit: contain;"/></div>
+                <div class="back-face"><img src="assets/3026570.svg" style="width: 80%; height: 80%; object-fit: contain;"/></div>
             </div>`;
             gameBoard.appendChild(card);
         })
