@@ -5,28 +5,20 @@ function shuffleArray(inputArray) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const cardData = [
-        { id: 1, content: "UN", number: 1 },
-        { id: 2, content: "DEUX", number: 2 },
-        { id: 3, content: "TROIS", number: 3 },
-        { id: 4, content: "QUATRE", number: 4 },
-        { id: 5, content: "CINQ", number: 5 },
-        { id: 6, content: "SIX", number: 6 },
-        { id: 7, content: "SEPT", number: 7 },
-        { id: 8, content: "HUIT", number: 8 },
-        { id: 9, content: "NEUF", number: 9 },
-        { id: 10, content: "DIX", number: 10 },
-        { id: 11, content: "ONZE", number: 11 },
-        { id: 12, content: "DOUZE", number: 12 },
-        { id: 13, content: "TREIZE", number: 13 },
-        { id: 14, content: "QUATORZE", number: 14 },
-        { id: 15, content: "QUINZE", number: 15 },
-        { id: 16, content: "SEIZE", number: 16 },
-
+        { id: 1, content: "Good bye", imageUrl: "<img src='assets/bye.svg'>" },
+        { id: 2, content: "Hello", imageUrl: "<img src='assets/hello.svg'>" },
+        { id: 3, content: "I love you", imageUrl: "<img src='assets/loveYou.svg'>" },
+        { id: 4, content: "No", imageUrl: "<img src='assets/no.svg'>" },
+        { id: 5, content: "Please", imageUrl: "<img src='assets/please.svg'>" },
+        { id: 6, content: "Sorry", imageUrl: "<img src='assets/sorry.svg'>" },
+        { id: 7, content: "Thank you", imageUrl: "<img src='assets/thankYou.svg'>" },
+        { id: 8, content: "Yes", imageUrl: "<img src='assets/yes.svg'>" },
     ];
+    
 
     const gameBoard = document.getElementById('gameBoard');
     shuffleArray(cardData.map((e, i) => {
-        return [{ content: e.content, id: e.id }, { id: e.id, content: e.number }];
+        return [{ content: e.content, id: e.id }, { id: e.id, content: e.imageUrl }];
     })
         .flat())
         .forEach((e, i) => {
