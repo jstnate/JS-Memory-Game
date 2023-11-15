@@ -6,14 +6,198 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
+  color: #222;
+  list-style: none;
+  font-family: sans-serif;
+  white-space: nowrap;
 }
 
-body {
+header {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+}
+
+header nav {
+}
+
+header nav ul {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+header nav ul li a {
+  color: #757575;
+}
+
+header nav ul li.selected a {
+  font-weight: bold;
+  color: #222;
+}
+
+.user {
+  display: flex;
+  gap: 2rem;
+  font-weight: bold;
+  align-items: center;
+}
+
+.progress {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.progress .back {
+  padding: 0 10%;
+  width: 100%;
+}
+
+.progress h4 {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.progress h4 span {
+  display: block;
+  aspect-ratio: 1;
+  width: 16px;
+  height: 16px;
+  border-left: #222 2px solid;
+  border-bottom: #222 2px solid;
+  transform: rotate(45deg) scale(0.7);
+}
+
+.progress ul {
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.progress ul {
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.progress ul li span {
+  display: block;
+}
+
+.progress ul li span.step {
+  border: solid #222 2px;
+  background-color: #222;
+  text-transform: uppercase;
+  color: #ffffff;
+  border-radius: 1rem;
+  padding: 0.125rem 1rem;
+  font-weight: bold;
+}
+
+.progress ul li span.step.empty {
+  background-color: #ffffff;
+  color: #222;
+}
+
+.progress ul li span.spacer {
+  width: 64px;
+  height: 2px;
+  border: solid 1px #222;
+}
+
+.progress ul li span.spacer.dashed {
+  border: none;
+}
+
+.progress ul li > span {
+  display: flex;
+  gap: 5px;
+}
+
+.progress ul li span > span {
+  width: 12px;
+  height: 2px;
+  background-color: #222;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+main .drawer {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  /* border: solid 1px; */
+  background-color: blue;
+  width: calc(20vw + 1rem);
+  animation: animate forwards 0.8s ease-in-out;
+  /* overflow: hidden; */
+}
+
+main .drawer.paused {
+  animation-play-state: paused;
+}
+
+main .drawer.reverse {
+  animation-direction: reverse;
+}
+
+main .drawer .truc {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  display: block;
+  height: 4rem;
+  aspect-ratio: 1;
+  background-color: red;
+  border-left: solid 4px;
+  border-bottom: solid 4px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  z-index: 10;
+  cursor: pointer;
+}
+
+main .drawer .inner {
+  /* position: absolute; */
+  position: relative;
+  left: 1rem;
+  width: 20vw;
+  /* border-top: solid 1px; */
+  height: 50px;
+  background-color: red;
+}
+
+@keyframes animate {
+  0% {
+    /* transform: translateX(calc(20vw + 1rem)); */
+    width: 0;
+  }
+  65% {
+    /* transform: translateX(-1rem); */
+    width: calc(20vw + 3rem);
+  }
+  100% {
+    /* transform: translateX(0); */
+    width: calc(20vw + 1rem);
+  }
 }
 
 #gameBoard {
@@ -70,6 +254,7 @@ body {
 
 .back-face {
   transform: rotateY(180deg);
+  background-color: #f0f0f0;
 }
 
 .card.flipped .card-inner {

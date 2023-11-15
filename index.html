@@ -7,7 +7,65 @@
     <title>Jeu MEMORIES</title>
   </head>
   <body>
-    <div id="gameBoard"></div>
+    <header>
+      <img src="./assets/logo.png" alt="">
+      <nav>
+        <ul>
+          <li>
+            <a href="#">Accueil</a>
+          </li>
+          <li class="selected">
+            <a href="#">Formations</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="user">
+        <div class="timer">00:00</div>
+        <a href="#">
+          <img src="./assets/user.png" alt="" class="account" width="24">
+        </a>
+      </div>
+    </header>
+    <div class="progress">
+      <div class="back">
+        <h4>
+          <span></span>
+          <a href="#">Les bases de la LSF</a>
+        </h4>
+      </div>
+      <ul>
+        <li><span class="step">Question 1</span></li>
+        <li><span class="spacer"></span></li>
+        <li><span class="step">Question 2</span></li>
+        <li><span class="spacer"></span></li>
+        <li><span class="step">Question 3</span></li>
+        <li><span class="spacer"></span></li>
+        <li><span class="step">Question 4</span></li>
+        <li><span class="spacer dashed">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </span></li>
+        <li><span class="step empty">Question 5</span></li>
+      </ul>
+    </div>
+    <main>
+      <h2>Entrainez-vous</h2>
+      <div id="gameBoard"></div>
+      <div class="drawer paused">
+        <div class="truc"></div>
+        <div class="inner"></div>
+      </div>
+      <button>Recommencer</button>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>
