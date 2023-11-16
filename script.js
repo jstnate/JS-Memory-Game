@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.innerHTML = `
             <div class="card-inner">
                 <div class="front-face">${e.content}</div>
-                <div class="back-face"><img src="assets/3026570.svg" style="width: 80%; height: 80%; object-fit: contain;"/></div>
+                <div class="back-face"><img src="assets/question-mark.png" style="width: 100%; height: 100%; object-fit: contain;"/></div>
             </div>`;
             gameBoard.appendChild(card);
         })
